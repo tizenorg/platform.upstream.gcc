@@ -1,0 +1,33 @@
+Packaging GCC
+=============
+
+Shared libraries used by programs that are linked _with_ gcc need
+to go into separate packages.  Shared library package names should
+contain the libraries major .so version to allow parallel installation
+of both programs using and gccs linking against those libraries.
+An example is the libgfortran and libgfortran2 packages.
+
+The development part of language runtime libraries go into
+libFOOver-devel packages and depend on the proper libFOOsover package.
+
+
+Build variants supported
+========================
+
+The gcc packages can build different flavors of compiler packages.
+
+ - The standard compiler packages are installed beyond /usr.
+
+ - Sets of packages for installation beyond /opt/gcc are provided
+   if enabled by %{gcc_for_opt} (related: @PREFIX_FOR_OPT@, @LIBDIR_FOR_OPT@,
+   @GCC_FOR_OPT@
+
+ - cross.spec.in is used for auto-generation of
+   cross-*-gcc-icecream-backend.spec by the change_spec script using
+   parts of the configuration from the main compiler.  These packages
+   provide tarballs with just cc1 and cc1plus serving as icecream environments.
+
+ - micro-cross.spec.in is a script that is called from change_spec and
+   outputs cross-*-gcc.spec files.  These packages provide cross compiler
+   environments beyond /opt/cross for C and C++ as a single package.
+
