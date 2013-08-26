@@ -8,13 +8,14 @@ Name:           gcc
 %define separate_bi32 1
 %endif
 Url:            http://gcc.gnu.org/
-%define gcc_version 47
-%define gcc_suffix 4.7
-Version:        4.7
+%define gcc_version 48
+%define gcc_suffix 4.8
+Version:        4.8
 Release:        0
+VCS:            platform/upstream/gcc#submit/tizen/20130710.130950-0-g53ff3a85824df4cdadecc563ddb81c5a021bcc0b
 Summary:        The system GNU C Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
+Group:          Development/Toolchain
 Provides:       c_compiler
 Obsoletes:      gcc-mudflap
 Requires:       cpp
@@ -31,7 +32,6 @@ The system GNU C Compiler.
 %package -n gcc-32bit
 Summary:        The system GNU C Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       gcc = %{version}
 Requires:       gcc%{gcc_version}-32bit
 
@@ -43,7 +43,6 @@ The system GNU C Compiler.
 %package -n gcc-64bit
 Summary:        The system GNU C Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       gcc = %{version}
 Requires:       gcc%{gcc_version}-64bit
 
@@ -55,7 +54,6 @@ The system GNU C Compiler.
 %package -n cpp
 Summary:        The system GNU Preprocessor
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       cpp%{gcc_version}
 
 %description -n cpp
@@ -66,7 +64,6 @@ The system GNU Preprocessor.
 %package -n gcc-locale
 Summary:        The system GNU Compiler locale files
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       gcc%{gcc_version}-locale
 
 %description -n gcc-locale
@@ -77,7 +74,6 @@ The system GNU Compiler locale files.
 %package -n gcc-info
 Summary:        The system GNU Compiler documentation
 License:        GFDL-1.2
-Group:          Development/Languages/C and C++
 Requires:       gcc%{gcc_version}-info
 
 %description -n gcc-info
@@ -91,7 +87,6 @@ The system GNU Compiler documentation.
 %package -n gcc-c++
 Summary:        The system GNU C++ Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Provides:       c++_compiler
 Requires:       gcc = %{version}
 Requires:       gcc%{gcc_version}-c++
@@ -103,7 +98,6 @@ The system GNU C++ Compiler.
 %package -n gcc-c++-32bit
 Summary:        The system GNU C++ Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       gcc-32bit = %{version}
 Requires:       gcc-c++ = %{version}
 Requires:       libstdc++%{gcc_version}-devel-32bit
@@ -115,7 +109,6 @@ The system GNU C++ Compiler 32 bit support.
 %package -n gcc-c++-64bit
 Summary:        The system GNU C++ Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       gcc-64bit = %{version}
 Requires:       gcc-c++ = %{version}
 Requires:       libstdc++%{gcc_version}-devel-64bit
@@ -128,7 +121,6 @@ The system GNU C++ Compiler 64 bit support.
 %package -n libstdc++-devel
 Summary:        The system GNU C++ development files
 License:        GPL-3.0-with-GCC-exception
-Group:          System/Libraries
 Requires:       libstdc++%{gcc_version}-devel
 
 %description -n libstdc++-devel
@@ -139,7 +131,6 @@ The system GNU C++ development files.
 %package -n gcc-fortran
 Summary:        The system GNU Fortran Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Fortran
 Requires:       gcc = %{version}
 Requires:       gcc%{gcc_version}-fortran
 
@@ -150,7 +141,6 @@ The system GNU Fortran Compiler.
 %package -n gcc-fortran-32bit
 Summary:        The system GNU Fortran Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Fortran
 Requires:       gcc%{gcc_version}-fortran-32bit
 Requires:       gcc-fortran = %{version}
 
@@ -161,7 +151,6 @@ The system GNU Fortran Compiler 32 bit support.
 %package -n gcc-fortran-64bit
 Summary:        The system GNU Fortran Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Fortran
 Requires:       gcc%{gcc_version}-fortran-64bit
 Requires:       gcc-fortran = %{version}
 
@@ -172,7 +161,6 @@ The system GNU Fortran Compiler 64 bit support.
 %package -n gcc-java
 Summary:        The system GNU Java Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Java
 Requires:       gcc%{gcc_version}-java
 Requires:       libgcj-devel = %{version}
 Recommends:     gcc-gij = %{version}
@@ -186,7 +174,6 @@ The system GNU Java Compiler.
 %package -n libgcj-devel
 Summary:        The system GNU Java development files.
 License:        GPL-2.0-with-classpath-exception
-Group:          Development/Libraries/Java
 Requires:       libgcj%{gcc_version}-devel
 
 %description -n libgcj-devel
@@ -197,7 +184,6 @@ The system GNU Java development files.
 %package -n gcc-gij
 Summary:        The system GNU Java bytecode interpreter
 License:        GPL-2.0+
-Group:          Development/Languages/Java
 Requires:       gcc%{gcc_version}-gij
 
 %description -n gcc-gij
@@ -208,7 +194,6 @@ The system GNU Java bytecode interpreter.
 %package -n gcc-gij-32bit
 Summary:        The system GNU Java bytecode interpreter
 License:        GPL-2.0+
-Group:          Development/Languages/Java
 Requires:       gcc%{gcc_version}-gij-32bit
 
 %description -n gcc-gij-32bit
@@ -219,7 +204,6 @@ The system GNU Java bytecode interpreter as 32 bit application.
 %package -n gcc-gij-64bit
 Summary:        The system GNU Java bytecode interpreter
 License:        GPL-2.0+
-Group:          Development/Languages/Java
 Requires:       gcc%{gcc_version}-gij-64bit
 
 %description -n gcc-gij-64bit
@@ -230,7 +214,6 @@ The system GNU Java bytecode interpreter as 64 bit application.
 %package -n gcc-objc
 Summary:        The system GNU Objective C Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Other
 Requires:       gcc = %{version}
 Requires:       gcc%{gcc_version}-objc
 %ifarch ppc64
@@ -245,7 +228,6 @@ The system GNU Objective C Compiler.
 %package -n gcc-objc-32bit
 Summary:        The system GNU Objective C Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Other
 Requires:       gcc%{gcc_version}-objc-32bit
 Requires:       gcc-objc = %{version}
 
@@ -257,7 +239,6 @@ The system GNU Objective C Compiler 32 bit support.
 %package -n gcc-objc-64bit
 Summary:        The system GNU Objective C Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Other
 Requires:       gcc%{gcc_version}-objc-64bit
 Requires:       gcc-objc = %{version}
 
@@ -269,7 +250,6 @@ The system GNU Objective C Compiler 64 bit support.
 %package -n gcc-obj-c++
 Summary:        The system GNU Objective C++ Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/Other
 Requires:       gcc%{gcc_version}-obj-c++
 Requires:       gcc-objc = %{version}
 
@@ -281,7 +261,6 @@ The system GNU Objective C++ Compiler.
 %package -n gcc-ada
 Summary:        The system GNU Ada Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       gcc = %{version}
 Requires:       gcc%{gcc_version}-ada
 
@@ -292,7 +271,6 @@ The system GNU Ada Compiler.
 %package -n gcc-z9
 Summary:        The system GNU C Compiler
 License:        GPL-3.0+
-Group:          Development/Languages/C and C++
 Requires:       gcc
 
 %description -n gcc-z9
