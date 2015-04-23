@@ -8,11 +8,10 @@ Name:           gcc
 %define separate_bi32 1
 %endif
 Url:            http://gcc.gnu.org/
-%define gcc_version 49
-%define gcc_suffix 4.9
+%define gcc_version 51
+%define gcc_suffix 5.1
 Version:        %{gcc_suffix}
 Release:        0
-VCS:            platform/upstream/gcc#submit/tizen/20130912.075802-0-g8dedfe9b5812e8701edc404688e2143834498927
 Summary:        The system GNU C Compiler
 License:        GPL-3.0+
 Group:          Development/Toolchain
